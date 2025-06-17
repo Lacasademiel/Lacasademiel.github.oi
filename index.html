@@ -177,16 +177,12 @@
     border: 1px solid #ddd;
     margin-top: 0.5rem;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     header {
       flex-wrap: wrap;
       flex-direction: column;
       align-items: flex-start;
       padding: 1rem;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
     }
     nav {
       width: 100%;
@@ -237,6 +233,7 @@
     <nav>
       <a href="#productos">Productos</a>
       <a href="#sobre-nosotros">Sobre Nosotros</a>
+      <a href="#recetas">Recetas</a>
       <a href="#contacto" class="btn-contacto">Contacto</a>
     </nav>
     <div class="iconos">
@@ -244,7 +241,7 @@
       <span class="icon" onclick="toggleCarrito()">🛒</span>
     </div>
   </header>
-<section id="sobre-nosotros" style="background-image: url('WhatsApp Image 2025-06-05 at 10.01.24 PM.jpeg'); background-size: cover; background-position: left; padding: 5rem 2rem; text-align: left; color: hwb(29 2% 80%);">
+<section class="hero" style="background-image: url('WhatsApp Image 2025-06-05 at 10.01.24 PM.jpeg'); background-size: cover; background-position: left; padding: 5rem 2rem; text-align: left; color: hwb(29 2% 80%);">
   <h1 style="font-size: 2.8rem; margin-bottom: 1rem;">Directo de la colmena a tu hogar</h1>
   <p style="font-size: 1.4rem; margin-bottom: 2rem;">Miel 100% natural, sin aditivos, hecha con amor y cuidado</p>
   <a href="#productos" style="background-color: #311c07; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; text-decoration: none;">Descubre Nuestros Productos</a>
@@ -281,10 +278,10 @@
         <p style="text-align: justify;">Disfruta de 500g de la dulzura natural y auténtica de nuestra miel pura de abeja, extraída directamente de colmenas saludables y sin ningún tipo de proceso industrial. Rica en nutrientes, enzimas y antioxidantes, es ideal para endulzar tus alimentos de forma saludable o aprovechar sus propiedades medicinales. 100% natural, sin conservadores ni azúcares añadidos.
         </p>
         <p>
-  <span style="font-size: 1rem; color: #b22222; font-weight: bold;">$140.50 MXN</span>
+  <span style="font-size: 1rem; color: #b22222; font-weight: bold;">$120.50 MXN</span>
   <del style="margin-left: 0.5rem; color: #555;">$160.25 MXN</del>
 </p>
-        <button onclick="agregarAlCarrito('Miel Pura de Abeja',140.50)">Agregar al carrito</button>
+        <button onclick="agregarAlCarrito('Miel Pura de Abeja',120)">Agregar al carrito</button>
       </div>
       <div class="producto">
         <img src="fc4086e8-168d-42f4-8f8a-389dc9f8e0b5-removebg-preview.png" alt="Miel con Propóleos">
@@ -295,7 +292,7 @@
   <span style="font-size: 1rem; color: #b22222; font-weight: bold;">$99.99 MXN</span>
   <del style="margin-left: 0.5rem; color: #555;">$130.70 MXN</del>
 </p>
-        <button onclick="agregarAlCarrito('Miel con Propóleos',99.99)">Agregar al carrito</button>
+        <button onclick="agregarAlCarrito('Miel con Propóleos',140)">Agregar al carrito</button>
       </div>
       <div class="producto">
         <img src="image-removebg-preview.png" alt="Jabón Artesanal">
@@ -306,7 +303,7 @@
   <span style="font-size: 1rem; color: #b22222; font-weight: bold;">$59.99 MXN</span>
   <del style="margin-left: 0.5rem; color: #555;">$89.99 MXN</del>
 </p>
-        <button onclick="agregarAlCarrito('Jabón Artesanal',59.99)">Agregar al carrito</button>
+        <button onclick="agregarAlCarrito('Jabón Artesanal',90)">Agregar al carrito</button>
       </div>
     </div>
   </section>
@@ -337,20 +334,10 @@
       <button onclick="comprarCarrito()">Comprar</button>
     </div>
   </div>
-<!-- Anuncios Sidebar -->
-<div id="anunciosSidebar" style="display:none; position: fixed; top: 0; right: 0; width: 300px; height: 100%; background-color: #fff3dc; padding: 1rem; box-shadow: -2px 0 10px rgba(0,0,0,0.2); overflow-y: auto; z-index: 1000;">
-  <h3 style="text-align: center;">📢 Anuncios</h3>
-  <div>
-    <img src="anun 2.jpg"Anuncio 1" style="width: 100%; margin-bottom: 1rem;">
-    <img src="anun 3.jpg" alt="Anuncio 2" style="width: 100%; margin-bottom: 1rem;">
-    <img src="anun 4.jpg" alt="Anuncio 3" style="width: 100%; margin-bottom: 1rem;">
-  </div>
-  <button onclick="toggleAnuncios()" style="margin-top: 1rem; background-color: #8b5e3c; color: white; border: none; padding: 0.5rem; width: 100%; border-radius: 5px;">Cerrar</button>
-</div>
+
   
 <!-- Pie de página con redes y QR -->
-
-<footer id="contacto" style="background-color: #f4e9cd; padding: 2rem; text-align: center; margin-top: 3rem; color: #1b1004;">
+<footer style="background-color: #f4e9cd; padding: 2rem; text-align: center; margin-top: 3rem; color: #1b1004;">
   <h3>Síguenos en redes sociales</h3>
   <p style="margin: 1rem 0;">
     <a href="https://youtube.com/@lacasadelamiel?si=dnaqBRDyAKNDWbhN" target="_blank" style="margin: 0 0.5rem;">YouTube</a> ·
@@ -420,10 +407,6 @@
       objetivo.style.display = 'block';
     }
   }
-  function toggleAnuncios() {
-  const sidebar = document.getElementById("anunciosSidebar");
-  sidebar.style.display = (sidebar.style.display === "none" || sidebar.style.display === "") ? "block" : "none";
-}
   </script></body>
   <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
